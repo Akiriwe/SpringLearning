@@ -1,14 +1,19 @@
 package com.epam.spring.core.beans;
 
 public class Client {
-    private Integer id;
+    private String id;
     private String fullName;
 
-    public Integer getId() {
+    public Client(String id, String fullName) {
+        this.id = id;
+        this.fullName = fullName;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
