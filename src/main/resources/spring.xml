@@ -19,7 +19,11 @@
         <constructor-arg ref="dateFormat"/>
     </bean>
 
-    <bean id="eventLogger" class="com.epam.spring.core.loggers.impl.ConsoleEventLogger"/>
+    <bean id="eventLogger" class="com.epam.spring.core.loggers.impl.CacheFileEventLogger" init-method="init"
+          destroy-method="destroy">
+        <constructor-arg name="fileName" value="event-logger.log"/>
+        <constructor-arg name="cacheSize" value="2"/>
+    </bean>
 
     <bean id="app" class="com.epam.spring.core.App">
         <constructor-arg ref="client"/>
