@@ -18,6 +18,8 @@ public class FileEventLogger implements EventLogger {
 
     private void init() throws IOException {
         this.file = new File(fileName);
+        file.createNewFile();
+
         if (!file.canWrite()) {
             throw new IOException("Cannot write to file - someone already uses it or you don't have permissions.");
         }
