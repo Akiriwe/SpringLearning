@@ -8,13 +8,22 @@
     <bean id="consoleEventLogger" class="com.epam.spring.core.loggers.impl.ConsoleEventLogger"/>
 
     <bean id="fileEventLogger" class="com.epam.spring.core.loggers.impl.FileEventLogger"
-          init-method="init" abstract="true">
+          init-method="init">
         <constructor-arg name="fileName" value="file-event-logger.log"/>
     </bean>
 
     <bean id="cacheFileEventLogger" class="com.epam.spring.core.loggers.impl.CacheFileEventLogger"
           destroy-method="destroy" parent="fileEventLogger">
         <constructor-arg name="cacheSize" value="2"/>
+    </bean>
+
+    <bean id="combinedEventLogger" class="com.epam.spring.core.loggers.impl.CombinedEventLogger">
+        <constructor-arg>
+            <list>
+                <ref bean="consoleEventLogger"/>
+                <ref bean="fileEventLogger"/>
+            </list>
+        </constructor-arg>
     </bean>
 </beans>
 
