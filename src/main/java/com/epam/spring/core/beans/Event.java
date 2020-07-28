@@ -1,9 +1,12 @@
 package com.epam.spring.core.beans;
 
+import org.springframework.stereotype.Component;
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Random;
 
+@Component
 public class Event {
     private final int id = new Random().nextInt();
     private final Date date;
