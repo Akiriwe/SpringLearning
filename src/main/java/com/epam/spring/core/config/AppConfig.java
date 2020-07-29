@@ -40,6 +40,16 @@ public class AppConfig {
     }
 
     @Bean
+    @Autowired
+    public List<EventLogger> listForCombinedLogger(ConsoleEventLogger consoleEventLogger,
+                                                   FileEventLogger fileEventLogger) {
+        List<EventLogger> eventLoggers = new ArrayList<>();
+        eventLoggers.add(consoleEventLogger);
+        eventLoggers.add(fileEventLogger);
+        return eventLoggers;
+    }
+
+    @Bean
     @Scope(scopeName = "prototype")
     public Event event() {
         return new Event(new Date(), DateFormat.getDateTimeInstance());

@@ -33,20 +33,7 @@ public class LoggerConfig {
     }
 
     @Bean
-    @Autowired
-    public List<EventLogger> listForCombinedLogger(ConsoleEventLogger consoleEventLogger,
-                                                   FileEventLogger fileEventLogger) {
-        List<EventLogger> eventLoggers = new ArrayList<>();
-        eventLoggers.add(consoleEventLogger);
-        eventLoggers.add(fileEventLogger);
-        System.out.println("list " + eventLoggers);
-        return eventLoggers;
-    }
-
-    @Bean
-    @Autowired
-    public CombinedEventLogger combinedEventLogger(List<EventLogger> listForCombinedLogger) {
-        System.out.println("logger " + listForCombinedLogger);
-        return new CombinedEventLogger(listForCombinedLogger);
+    public CombinedEventLogger combinedEventLogger() {
+        return new CombinedEventLogger();
     }
 }

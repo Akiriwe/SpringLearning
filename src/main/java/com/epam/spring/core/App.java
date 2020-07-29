@@ -60,12 +60,6 @@ public class App {
         if (eventLogger == null) {
             eventLogger = defaultEventLogger;
         }
-        System.out.println("logEvent app method: " );
-        System.out.println(eventLogger.getClass());
-        System.out.println("log event app msg: " + event);
-
         eventLogger.logEvent(event);
-
-        System.out.println(System.lineSeparator());
     }
 }
